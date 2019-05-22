@@ -18,6 +18,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
   "select projects.title, sum(pledges.amount)
    from projects 
    join pledges on projects.id = pledges.project_id
+   where sum(pledges.amount) > 100
    group by pledges.project_id"
 end
 
