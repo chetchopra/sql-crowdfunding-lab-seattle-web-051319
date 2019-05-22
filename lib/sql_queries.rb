@@ -15,11 +15,11 @@ def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-  "select projects.title, sum(pledges.amount) as col
+  "select projects.title, projects.funding_goal - sum(pledges.amount) as col
    from projects 
    join pledges on projects.id = pledges.project_id
    group by pledges.project_id
-   having col >= projects.funding_goal
+   having sum(pledges.amount) >= projects.funding_goal
    order by col"
 end
 
