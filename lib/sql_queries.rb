@@ -31,8 +31,8 @@ def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_ca
   "select projects.category, sum(pledges.amount)
   from projects
   join pledges on projects.id = pledges.project_id
-  group by pledges.project_id
-  where projects.category = 'music'"
+  where projects.category = 'music'
+  group by pledges.project_id"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
