@@ -1,8 +1,7 @@
 def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_name
-"select projects.title, pledges.amount
+"select *
  from projects 
  join pledges on projects.id = pledges.project_id
- group by projects.title
  order by projects.title"
 end
 
