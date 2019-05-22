@@ -1,7 +1,8 @@
 def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_name
-"select pledges.amount, pledges.project_id
+"select sum(pledges.amount), pledges.project_id
  from projects 
  join pledges on projects.id = pledges.project_id
+ group by pledges.project_id
  order by projects.title"
 end
 
